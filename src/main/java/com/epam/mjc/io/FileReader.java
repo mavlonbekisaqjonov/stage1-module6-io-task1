@@ -2,9 +2,6 @@ package com.epam.mjc.io;
 
 import java.io.*;
 import java.util.logging.Logger;
-import java.util.logging.Level;
-
-
 
 public class FileReader {
     private static final Logger logger = Logger.getLogger(FileReader.class.getName());
