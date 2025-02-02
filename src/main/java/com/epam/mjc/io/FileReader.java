@@ -1,10 +1,13 @@
 package com.epam.mjc.io;
 
-import java.io.File;
 import java.io.*;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+
 
 
 public class FileReader {
+    private static final Logger logger = Logger.getLogger(FileReader.class.getName());
 
     public Profile getDataFromFile(File file) {
         StringBuilder outt = new StringBuilder();
@@ -15,7 +18,7 @@ public class FileReader {
                 outt.append((char) byteData);
             }
         } catch(IOException e){
-            System.out.println("the code is distrupted" + e.getMessage());
+            logger.warning("This is a warning message!");
         }
 
         String out = outt.toString();
