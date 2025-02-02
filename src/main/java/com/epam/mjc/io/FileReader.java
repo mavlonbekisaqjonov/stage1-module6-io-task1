@@ -7,23 +7,15 @@ import java.io.*;
 public class FileReader {
 
     public Profile getDataFromFile(File file) {
-        FileInputStream fr = null;
         StringBuilder outt = new StringBuilder();
 
-        try {
-            fr = new FileInputStream(file);
+        try (FileInputStream fr =new FileInputStream(file)){
             int byteData;
             while ((byteData = fr.read()) != -1) {
                 outt.append((char) byteData);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                if (fr != null) fr.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch(IOException e){
+            System.out.println("the code is distrupted" + e.getMessage());
         }
 
         String out = outt.toString();
